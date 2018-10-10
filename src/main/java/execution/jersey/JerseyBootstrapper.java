@@ -42,10 +42,10 @@ public class JerseyBootstrapper {
      */
     public void setupServer() {
         // Create our server according to SSL configuration
-        if (!this.useSSL) {
-            this.jettyServer = new Server(this.port);
+        if (!useSSL) {
+            jettyServer = new Server(this.port);
         } else {
-            this.jettyServer = new Server();
+            jettyServer = new Server();
             HttpConfiguration https = new HttpConfiguration();
             https.addCustomizer(new SecureRequestCustomizer());
             https.setSecureScheme("https");
@@ -70,7 +70,7 @@ public class JerseyBootstrapper {
 
         // WebApp handler
         WebAppContext webAppContext = new WebAppContext();
-        webAppContext.setServer(this.jettyServer);
+        webAppContext.setServer(jettyServer);
 
         // Guice filter
         webAppContext.addFilter(GuiceFilter.class, "/*", EnumSet.allOf(DispatcherType.class));
@@ -87,19 +87,19 @@ public class JerseyBootstrapper {
         handlerCollection.addHandler(webAppContext);
 
         // Set all handlers to jetty
-        this.jettyServer.setHandler(handlerCollection);
+        jettyServer.setHandler(handlerCollection);
     }
 
     public void startServer() throws Exception {
-        this.jettyServer.start();
-        this.jettyServer.join();
+        jettyServer.start();
+        jettyServer.join();
     }
 
     public void stopServer() throws Exception {
-        this.jettyServer.stop();
+        jettyServer.stop();
     }
 
     public void destroyServer() {
-        this.jettyServer.destroy();
+        jettyServer.destroy();
     }
 }

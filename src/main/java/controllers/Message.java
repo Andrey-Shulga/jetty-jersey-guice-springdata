@@ -1,7 +1,9 @@
 package controllers;
 
+import model.Product;
+import service.Service;
+
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,11 +16,12 @@ import javax.ws.rs.core.MediaType;
 public class Message {
 
     @Inject
-    @Named("serverPort")
-    private Integer port;
+    private Service service;
 
     @GET
     public String getMessage() {
-        return "Hey!, I'm running on port: " + this.port;
+
+        service.save(new Product(1L, "Phone"));
+        return "{\"Hey!, I'm run\" : \"yes\"}";
     }
 }

@@ -12,7 +12,7 @@ import java.util.Properties;
 public class Globals {
 
     private static Injector guiceInjector = null;
-    private static final String TEST_PERSISTENCE_UNIT_NAME = "testDB";
+    private static final String TEST_PERSISTENCE_UNIT_NAME = "test";
     private static final String REPOSITORIES_BASE_PACKAGE_NAME = ProductRepository.class.getPackage().getName();
 
     public static Injector getGuiceInjector() {

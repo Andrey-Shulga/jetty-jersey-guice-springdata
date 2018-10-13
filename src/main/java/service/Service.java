@@ -13,6 +13,7 @@ public class Service {
     private ProductRepository productRepository;
 
     public void save(Product product){
+
         productRepository.save(product);
         System.out.println("Saved " + product);
     }

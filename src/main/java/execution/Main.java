@@ -5,6 +5,7 @@ import execution.jersey.JerseyBootstrapper;
 
 public class Main {
     public static void main(String... args) {
+
         JerseyBootstrapper bootstrapper = new JerseyBootstrapper();
 
         bootstrapper.setupServer();

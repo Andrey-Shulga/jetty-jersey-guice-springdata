@@ -20,6 +20,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
         <!-- Guice -->
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -28,8 +34,8 @@
         </dependency>
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
-            <artifactId>guice-servlet</artifactId>
-            <version>4.2.1</version>
+            <artifactId>guice-persist</artifactId>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.guice-repository</groupId>
@@ -84,6 +90,14 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.3.6.Final</version>
         </dependency>
+        <!--<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.3.6.Final</version>
+        </dependency>-->
+
+
+
 
         <dependency>
             <groupId>org.hsqldb</groupId>

@@ -21,7 +21,7 @@ public class Message {
     @GET
     public String getMessage() {
 
-        service.save(new Product(1L, "Phone"));
+        service.save(new Product(111666L, "Phone"));
         return "{\"Hey!, I'm run\" : \"yes\"}";
     }
 }

@@ -32,7 +32,13 @@ public class GuiceModule extends AbstractModule {
 
         RepositoriesGroupBuilder repositoriesGroupBuilder = RepositoriesGroupBuilder.forPackage(repositoriesBasePackageName);
         RepositoriesGroup group = buildRepoGroup(repositoriesGroupBuilder, persistenceUnitName);
+
+
+        /*AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(AppConfig.class, DataBaseConfig.class);
+        context.refresh();*/
         install(new ScanningJpaRepositoryModule(Arrays.asList(group)));
+
 
     }
 

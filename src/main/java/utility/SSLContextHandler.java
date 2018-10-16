@@ -12,11 +12,11 @@ import java.security.*;
 public class SSLContextHandler {
 
     @Inject
-    @Named("certPass")
+    @Named("server.cert.pass")
     private String certPass;
 
     @Inject
-    @Named("trustPass")
+    @Named("server.trust.pass")
     private String trustPass;
 
     private KeyStore keyStore;

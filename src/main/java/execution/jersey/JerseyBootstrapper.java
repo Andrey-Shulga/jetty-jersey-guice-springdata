@@ -20,16 +20,16 @@ import java.util.EnumSet;
 public class JerseyBootstrapper {
 
     @Inject
-    @Named("useSSL")
-    boolean useSSL;
+    @Named("server.ssl")
+    private boolean useSSL;
 
     @Inject
-    @Named("serverPort")
-    int port;
+    @Named("server.port")
+    private int port;
 
     @Inject
-    @Named("serverSecurePort")
-    int securePort;
+    @Named("server.secure.port")
+    private int securePort;
 
     private Server jettyServer;
 
@@ -43,7 +43,7 @@ public class JerseyBootstrapper {
     public void setupServer() {
         // Create our server according to SSL configuration
         if (!useSSL) {
-            jettyServer = new Server(this.port);
+            jettyServer = new Server(port);
         } else {
             jettyServer = new Server();
             HttpConfiguration https = new HttpConfiguration();

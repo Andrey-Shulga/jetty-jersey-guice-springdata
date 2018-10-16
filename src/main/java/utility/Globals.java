@@ -3,8 +3,11 @@ package utility;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
+import config.AppConfig;
+import config.DataBaseConfig;
 import execution.guice.GuiceModule;
-import repo.ProductRepository;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.guice.module.SpringModule;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -12,14 +15,13 @@ import java.util.Properties;
 public class Globals {
 
     private static Injector guiceInjector = null;
-    private static final String TEST_PERSISTENCE_UNIT_NAME = "test";
-    private static final String REPOSITORIES_BASE_PACKAGE_NAME = ProductRepository.class.getPackage().getName();
 
     public static Injector getGuiceInjector() {
 
-        if (guiceInjector == null)
-            guiceInjector = Guice.createInjector(Stage.DEVELOPMENT, new GuiceModule(TEST_PERSISTENCE_UNIT_NAME, REPOSITORIES_BASE_PACKAGE_NAME));
-
+        if (guiceInjector == null) {
+            AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class, DataBaseConfig.class);
+            guiceInjector = Guice.createInjector(Stage.DEVELOPMENT, new SpringModule(context), new GuiceModule());
+        }
         return guiceInjector;
     }
 

@@ -5,8 +5,6 @@ import org.glassfish.hk2.api.ServiceLocator;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.jvnet.hk2.guice.bridge.api.GuiceBridge;
 import org.jvnet.hk2.guice.bridge.api.GuiceIntoHK2Bridge;
-import repo.ProductRepository;
-import service.Service;
 import utility.Globals;
 
 import javax.inject.Inject;
@@ -22,6 +20,6 @@ class JerseyConfiguration extends ResourceConfig {
         guiceBridge.bridgeGuiceInjector(Globals.getGuiceInjector());
 
         register(Message.class);
-        register(Service.class);
+
     }
 }

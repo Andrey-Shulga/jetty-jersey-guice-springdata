@@ -15,8 +15,12 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class Message {
 
-    @Inject
     private Service service;
+
+    @Inject
+    public Message(Service service) {
+        this.service = service;
+    }
 
     @GET
     public String getMessage() {

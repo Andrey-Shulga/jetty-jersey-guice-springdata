@@ -4,15 +4,18 @@ import model.Product;
 import repo.ProductRepository;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-@Singleton
+@org.springframework.stereotype.Service
 public class Service {
 
-    @Inject
     private ProductRepository productRepository;
 
-    public void save(Product product){
+    @Inject
+    public Service(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    public void save(Product product) {
 
         productRepository.save(product);
         System.out.println("Saved " + product);

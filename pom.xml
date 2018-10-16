@@ -20,45 +20,34 @@
 
     <dependencies>
 
+        <!--Spring-->
         <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>2.2.2</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.1.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.guice</groupId>
+            <artifactId>spring-guice</artifactId>
+            <version>1.1.2.RELEASE</version>
         </dependency>
 
         <!-- Guice -->
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
-            <version>3.0</version>
+            <version>4.2.1</version>
         </dependency>
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
-            <artifactId>guice-persist</artifactId>
-            <version>3.0</version>
+            <artifactId>guice-servlet</artifactId>
+            <version>4.2.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.google.code.guice-repository</groupId>
-            <artifactId>guice-repository</artifactId>
-            <version>2.1.0</version>
-            <!--conflict with hibernate-core-->
-            <exclusions>
-                <exclusion>
-                    <groupId>javassist</groupId>
-                    <artifactId>javassist</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+
         <dependency>
             <groupId>org.glassfish.hk2</groupId>
             <artifactId>guice-bridge</artifactId>
             <version>2.5.0-b62</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.23.1-GA</version>
         </dependency>
 
         <!--Jersey-->
@@ -90,14 +79,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.3.6.Final</version>
         </dependency>
-        <!--<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.3.6.Final</version>
-        </dependency>-->
-
-
-
 
         <dependency>
             <groupId>org.hsqldb</groupId>
